@@ -16,7 +16,7 @@ class PostFixtures extends Fixture
         for ($i = 0; $i < 50; $i++) {
 
             $post = new Post();
-            $post->setTitle($faker->sentence($nbWords = 6, $variableNbWords = true))
+            $post->setTitle($faker->sentence($nbWords = 3, $variableNbWords = true))
                 ->setContent($faker->realText(1800))
                 ->setState(mt_rand(0, 2) === 1 ? Post::STATES[0] : Post::STATES[1]);
             $manager->persist($post);

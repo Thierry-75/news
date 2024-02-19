@@ -15,13 +15,6 @@ class PostController extends AbstractController
     public function index(PostRepository $postRepository, PaginatorInterface $paginatorInterface, Request $request): Response
     {
         $data = $postRepository->findPublished();
-        $posts = $paginatorInterface->paginate(
-            $data,
-            $request->query->getInt('page', 1),
-            9
-        );
-        return $this->render('pages/post/index.html.twig', [
-            'posts' => $posts
-        ]);
+        return $this->render('pages/post/index.html.twig', ['posts' => $paginatorInterface->paginate( $data, $request->query->getInt('page', 1),9) ]);
     }
 }
