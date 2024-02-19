@@ -7,11 +7,8 @@ import './bootstrap.js';
  */
 import './styles/app.scss';
 import 'tw-elements';
-import {
-    Carousel,
-    initTE,
-  } from "tw-elements";
-  
-  initTE({ Carousel });
+import "./scripts/script.js"
+
+
 
 //console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

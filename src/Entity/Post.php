@@ -46,7 +46,7 @@ class Post
     private ?string $state = Post::STATES[0];
 
     #[ORM\OneToOne(inversedBy: 'post', targetEntity: Thumbnail::class, cascade: ['persist', 'remove'])]
-    private Thumbnail $thumbnail;
+    private ?Thumbnail $thumbnail = null;
 
     public function __construct()
     {
