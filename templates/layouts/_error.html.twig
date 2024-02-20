@@ -1,30 +1,28 @@
 <!DOCTYPE html>
-<html  lang="fr" class="h-full">
-    <head>
-        <meta charset="UTF-8">
-        <title>blog&nbsp;Erreur {% block title %}{{ exception.statusCode }}{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z" />
-</svg>
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-                    {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
-    </head>
-    <body class="h-full">
-<main class="grid min-h-full place-items-center bg-stone-200 px-6 py-24 sm:py-32 lg:px-8">
-  <div class="text-center">
-  <h1 class="mb-4 text-4xl text-teal-400 font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">HTTP Error {{ exception.statusCode }} </h1>
-    <h1 class="mt-4 text-3xl font-bold tracking-tight text-red-800 sm:text-5xl">{{ exception.statusText}}</h1>
-    <p class="mt-6 text-base leading-7 text-gray-600">Oups, quelque chose s'est mal passé !</p>
-    <div class="mt-10 flex items-center justify-center gap-x-6">
-      <a href="{{ path('app_post_index')}}" class="rounded-md bg-teal-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500">Retour à l'accueil</a>
+<html lang="fr" class="h-full">
+	<head>
+		<meta charset="UTF-8">
+		<title>blog&nbsp;Erreur
+			{% block title %}
+				{{ exception.statusCode }}
+			{% endblock %}
+		</title>
+		<link rel="icon" href="data:image/svg+xml, <svg xmlns=" http://www.w3.org/2000/svg" fill=" none" viewBox=" 0 0 24 24" stroke-width=" 1.5" stroke=" currentColor" class=" w-6 h-6">
+		<path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 0 1-2.25 2.25M16.5 7.5V18a2.25 2.25 0 0 0 2.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 0 0 2.25 2.25h13.5M6 7.5h3v3H6v-3Z"/></head>
+</html></svg>{% block stylesheets %}
+{{ encore_entry_link_tags('app') }}{% endblock %}{% block javascripts %}
+{{ encore_entry_script_tags('app') }}
+{% block importmap %}
+	{{ importmap('app') }}
+{% endblock %}{% endblock %}</head><body class="h-full"><main class="grid min-h-full place-items-center bg-stone-200 px-6 py-24 sm:py-32 lg:px-8">
+<div class="text-center">
+	<h1 class="mb-4 text-4xl text-teal-400 font-extrabold leading-none tracking-tight text-teal-1000 md:text-5xl lg:text-6xl dark:text-white">HTTP Error
+		{{ exception.statusCode }}
+	</h1>
+	<h1 class="mt-4 text-3xl font-bold tracking-tight text-red-800 sm:text-5xl">{{ exception.statusText}}</h1>
+	<p class="mt-6 text-base leading-7 text-gray-600">Oups, quelque chose s'est mal passé !</p>
+	<div class="mt-10 flex items-center justify-center gap-x-6">
+		<a href="{{ path('app_post_index')}}" class="rounded-md bg-teal-400 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500">Retour à l'accueil</a>
 
-    </div>
-  </div>
-</main>
-        </body>
-</html>
+	</div>
+</div></main></body></html>
