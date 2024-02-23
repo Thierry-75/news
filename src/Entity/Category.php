@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\CategoryRepository;
 use Cocur\Slugify\Slugify;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use App\Repository\CategoryRepository;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
 #[ORM\HasLifecycleCallbacks]
@@ -35,9 +37,13 @@ class Category
     #[Assert\NotNull()]
     private \DateTimeImmutable $createdAt;
 
+    #[ORM\ManyToMany(targetEntity: Post::class, inversedBy: 'categories')]
+    private Collection $posts;
+
     public function __construct()
     {
         $this->createdAt = new \DateTimeImmutable();
+        $this->posts = new ArrayCollection();
     }
     #[ORM\PrePersist]
     public function prePersist()
@@ -107,5 +113,29 @@ class Category
     public function __toString()
     {
         return $this->name;
+    }
+
+    /**
+     * @return Collection<int, Post>
+     */
+    public function getPosts(): Collection
+    {
+        return $this->posts;
+    }
+
+    public function addPost(Post $post): static
+    {
+        if (!$this->posts->contains($post)) {
+            $this->posts->add($post);
+        }
+
+        return $this;
+    }
+
+    public function removePost(Post $post): static
+    {
+        $this->posts->removeElement($post);
+
+        return $this;
     }
 }
